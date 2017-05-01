@@ -1,0 +1,55 @@
+{% load mathfilters %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			p, li{
+				text-align: center
+			}
+
+			label.name{
+				font-weight: bold
+			}
+
+		</style>
+	</head>
+    <body>
+		<p>
+		Thank you for submitting your registration!
+		</p>
+
+	    <p>
+	        <label class="name">Registration Fee: </label>
+	        <label id="costReg" class="name">(Base Fee)</label>
+
+	        ${{form.reg.data}}
+	      
+	    </p>
+
+	    <p>
+	        <label class="name">Additional Workshop: </label>
+	        <li>
+		    	Friday:  ${{form.friday.data}}
+		    </li>
+		    <li>
+		 		Saturday:  ${{form.saturday.data}}
+		    </li>         
+	    </p>
+
+	    <p>
+	    	---------------------------------------------------
+	    </p>
+
+	    <p>
+	        <label class="name">Total Cost:</label> 
+	        <label id="txtresult" ></label>            
+	    </p>
+
+	    <script type="text/javascript">
+
+	    	var sum = {{form.reg.data}} +  {{form.friday.data}}+ + {{form.saturday.data}};
+	    	document.getElementById("txtresult").innerHTML = "$" + sum; 
+	    	
+	    </script>
+    </body>
+</html>

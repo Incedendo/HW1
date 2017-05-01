@@ -1,0 +1,111 @@
+{% extends "form.html" %}
+{% block content %}
+
+<fieldset class="row1">
+    <legend>Conference Details</legend>
+    <div> Registration Fees
+        {% if form.reg.errors %}
+            <ul>
+                {% for error in form.reg.errors%}
+                    <li><strong>{{error}}</strong></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <p>
+            {% for radio_input in form.reg %}
+                {# Skip the empty value #}
+                {% if radio_input.choice_value %}
+                    <p class="user-level {{ radio_input.choice_value }}">{{ radio_input }}</p>
+                {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+
+    <div>
+        <p>
+            </br>
+        </p>
+
+        <p>
+            <label class="header1">Additional Workshop: </label>
+            <label class="">You can choose to attend these optional workshops</label>
+        </p>
+     
+        <p>
+            <label class="header1">Friday: </label>
+            {% for radio_input in form.friday %}
+                {# Skip the empty value #}
+                {% if radio_input.choice_value %}
+                    <p class="user-level {{ radio_input.choice_value }}">{{ radio_input }}</p>
+                {% endif %}
+            {% endfor %}
+        </p>
+       
+        <p>
+            <label class="header1">Saturday: </label>
+            {% for radio_input in form.saturday %}
+                {# Skip the empty value #}
+                {% if radio_input.choice_value %}
+                    <p class="user-level {{ radio_input.choice_value }}">{{ radio_input }}</p>
+                {% endif %}
+            {% endfor %}
+        </p>
+
+    </div>
+
+</fieldset>
+
+
+
+
+
+<fieldset class="row1">
+    <legend>Payment Information
+    </legend>
+    <p>
+        {% if form.payment_method.errors %}
+            <ul>
+                {% for error in form.payment_method.errors%}
+                    <li><strong>{{error}}</strong></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <label>Payment Methods* </label>
+        {{form.payment_method}}
+    </p>
+    <p>
+        {% if form.card_number.errors %}
+            <ul>
+                {% for error in form.card_number.errors%}
+                    <li><strong>{{error}}</strong></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <label>Card Number* </label>
+        {{form.card_number}}
+    </p>
+    <p>
+        {% if form.expiration_MM.errors %}
+            <ul>
+                {% for error in form.expiration_MM.errors%}
+                    <li><strong>{{error}}</strong></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <label>Exp Month* </label>
+        {{form.expiration_MM}}
+    </p>
+    <p>
+        {% if form.expiration_YY.errors %}
+            <ul>
+                {% for error in form.expiration_YY.errors%}
+                    <li><strong>{{error}}</strong></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <label>Exp Year* </label>
+        {{form.expiration_YY}}
+    </p>
+</fieldset> 
+
+{% endblock %}

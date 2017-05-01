@@ -1,0 +1,40 @@
+{% load mathfilters %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			p, li{
+				text-align: center
+			}
+
+			label.name{
+				font-weight: bold
+			}
+
+		</style>
+	</head>
+    <body>
+		<p>
+		Thank you for submitting your registration!
+		</p>
+
+	    <p>
+	        <label class="name">Registration Fee: </label>
+	        <label id="costReg" class="name">(Base Fee)</label>
+	       
+	        ${{form.reg.data}} 
+	    </p>
+
+	    <p>
+	        <label class="name">You did not choose any Additional Workshop: </label>
+	                 
+	    </p>
+
+	    <p>
+	        <label class="name">Total Cost:</label> 
+	        <label id="txtresult" >${{form.reg.data}}</label>            
+	    </p>
+
+	
+    </body>
+</html>
