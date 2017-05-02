@@ -3,6 +3,7 @@ from srs.forms import RegistrationForm
 from django.http import HttpResponseRedirect, HttpResponse
 # for what?
 from srs.models import User,Workshop
+# from srs.models import FILE_STATUS_CHOICES
 
 # Create your views here.
 def startup(request):
@@ -13,6 +14,16 @@ def startup(request):
 
 def thank(request):
 	return render(request, "thank.html")
+
+def getNum(value):
+	strlen = len(value)
+	num = int(value[strlen-3:])
+	return num
+
+def getCourse(value):
+	strlen = len(value)
+	course = value[0:strlen-3]
+	return course
 
 def contact(request):
 	# errors = []
@@ -51,7 +62,7 @@ def contact(request):
 				work_phone=data['work_phone'],
 
 				#membership:
-				membership=data['reg'],
+				membership=data['reg'][0:len(data['reg'])-6],
 
 				#Payment Information
 				payment_method=data['payment_method'],
@@ -60,31 +71,78 @@ def contact(request):
 				expiration_YY=data['expiration_YY'])
 			user.save()
 
+			context_dict = {}
+			context_dict['course'] = form.cleaned_data['saturday']
+			context_dict['price'] = form.cleaned_data['saturday']
+
 			if form.cleaned_data['friday'] and form.cleaned_data['saturday']:
 				workshop = Workshop(first_name =data['firstName'], 
 									middle_name=data['middleName'], 
 									last_name=data['lastName'],
-									FridayWorkshop=data['friday'],
-									SaturdayWorkshop=data['saturday'])
+									FridayWorkshop=data['friday'][0:len(data['friday'])-6],
+									SaturdayWorkshop=data['saturday'][0:len(data['saturday'])-6])
 				workshop.save()
-				return render(request,'thank.html',{'form':form})
+				fee = getNum(data['reg'])
+
+				fricourse = getCourse(data['friday'])
+				friprice = getNum(data['friday'])
+
+				satcourse = getCourse(data['saturday'])
+				satprice = getNum(data['saturday'])
+
+				total = fee + friprice + satprice
+				
+				context_dict ={
+					'fee': fee,
+					'fricourse':fricourse,
+					'friprice':friprice,
+					'satcourse':satcourse,
+					'satprice':satprice,
+					'total':total
+				}
+				return render(request,'thank.html',context_dict)
 			
 			elif form.cleaned_data['friday']:
 				workshop = Workshop(first_name =data['firstName'], 
 									middle_name=data['middleName'], 
 									last_name=data['lastName'],
-									FridayWorkshop=data['friday']
+									FridayWorkshop=data['friday'][0:len(data['friday'])-6]
 									)
 				workshop.save()
-				return render(request,'fridayCourse.html',{'form':form})
+				fee = getNum(data['reg'])
+				fricourse = getCourse(data['friday'])
+				friprice = getNum(data['friday'])
+
+				total = fee + friprice
+				
+				context_dict ={
+					'fee': fee,
+					'fricourse':fricourse,
+					'friprice':friprice,
+					'total':total
+				}
+				return render(request,'fridayCourse.html',context_dict)
 			
 			elif form.cleaned_data['saturday']:
 				workshop = Workshop(first_name =data['firstName'], 
 									middle_name=data['middleName'], 
 									last_name=data['lastName'],
-									SaturdayWorkshop=data['saturday'])
+									SaturdayWorkshop=data['saturday'][0:len(data['saturday'])-6])
 				workshop.save()
-				return render(request,'satCourse.html',{'form':form})
+				fee = getNum(data['reg'])
+
+				satcourse = getCourse(data['saturday'])
+				satprice = getNum(data['saturday'])
+
+				total = fee + satprice
+				
+				context_dict ={
+					'fee': fee,
+					'satcourse':satcourse,
+					'satprice':satprice,
+					'total':total
+				}
+				return render(request,'satCourse.html',context_dict)
 			
 			else:
 				return render(request,'noCourses.html',{'form':form})

@@ -20,17 +20,14 @@
 
 	    <p>
 	        <label class="name">Registration Fee: </label>
-	        <label id="costReg" class="name">(Base Fee)</label>
-	        {% if form.reg %}
-	        	${{form.reg.data}}
-	        {% endif %}
+	        <label id="costReg" class="name">(Base Fee) ${{fee}}</label>
 	        
 	    </p>
 
 	    <p>
 	        <label class="name">Additional Workshop: </label>
 	        
-		    	Friday:  ${{form.friday.data}}
+		    	Friday:  {{fricourse}}{{friprice}}
 		            
 	    </p>
 
@@ -39,21 +36,8 @@
 	    </p>
 
 	    <p>
-	        <label class="name">Total Cost:</label> 
-	        <label id="txtresult" ></label>            
+	        <label class="name">Total Cost: ${{total}}</label>           
 	    </p>
 
-	    <script type="text/javascript">
-	    	var fri = 0;
-	    	var sat = 0;
-	    	// if ( {{form.friday.data}} === null)
-	    	// 	fri = "null fri";
-	    	// if ( {{form.saturday.data}} === null)
-	    	// 	sat = "null sat";
-
-	    	var sum = {{form.reg.data}} +  {{form.friday.data}};
-	    	document.getElementById("txtresult").innerHTML = "$" + sum; 
-	    	
-	    </script>
     </body>
 </html>

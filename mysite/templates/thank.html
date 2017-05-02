@@ -20,20 +20,24 @@
 
 	    <p>
 	        <label class="name">Registration Fee: </label>
-	        <label id="costReg" class="name">(Base Fee)</label>
+	        <label id="costReg" class="name">(Base Fee) $ {{fee}}</label>
 
-	        ${{form.reg.data}}
+	      <!--   ${{form.reg.data}} -->
 	      
 	    </p>
 
 	    <p>
 	        <label class="name">Additional Workshop: </label>
-	        <li>
-		    	Friday:  ${{form.friday.data}}
+	      	<li>
+		    	Friday:  {{fricourse}} {{friprice}}
+		    	
 		    </li>
 		    <li>
-		 		Saturday:  ${{form.saturday.data}}
-		    </li>         
+		 		Saturday: {{satcourse}} {{satprice}}
+		 		
+		 		
+		    </li>     
+		   
 	    </p>
 
 	    <p>
@@ -41,15 +45,17 @@
 	    </p>
 
 	    <p>
-	        <label class="name">Total Cost:</label> 
+	        <label class="name">Total Cost: ${{total}}</label> 
 	        <label id="txtresult" ></label>            
 	    </p>
 
-	    <script type="text/javascript">
+	<!--     <script type="text/javascript">
 
-	    	var sum = {{form.reg.data}} +  {{form.friday.data}}+ + {{form.saturday.data}};
-	    	document.getElementById("txtresult").innerHTML = "$" + sum; 
+	    	// var sum = {{form.reg.data}} +  {{form.friday.data}}+ {{form.saturday.data}};
+	    	// var fri =  {{form.friday.data}};
+	    	// var sat = {{form.saturday.data}}.toString();
+	    	document.getElementById("txtresult").innerHTML =  5; 
 	    	
-	    </script>
+	    </script> -->
     </body>
 </html>

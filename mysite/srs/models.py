@@ -107,6 +107,14 @@ class User(models.Model):
 	    (Wyoming ,"WY" )
     )
 
+    # friday_choice =(
+
+    # )
+
+    # saturday_choice=(
+    # 	("Algorithms to Applications: $50", "Algorithms to Applications: $50"),
+    # 	("Cloud Computing: $75", "Cloud Computing: $75")
+    # )
 	#User Information
 	first_name 		= models.CharField(max_length=30)
 	middle_name 	= models.CharField(max_length=30, blank=True)
