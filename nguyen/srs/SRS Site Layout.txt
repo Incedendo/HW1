@@ -1,0 +1,8 @@
+startup.html: SRS Main Page:
+	. SRS Abstract Submission	: candidate sign up 
+	. SRS Poster Submission 	: submit abtract and PDF
+	. SRS Department Judging 	: view all PDF file in each DEPT
+	. SRS DB Query			: do database testing
+
+Startup link:
+http://localhost/nguyen/srs/html/startup.html

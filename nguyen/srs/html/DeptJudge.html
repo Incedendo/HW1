@@ -1,0 +1,60 @@
+<!-- 
+  Kiet Nguyen
+  Lab 2 SRS 
+  CS 30306
+  Professor Payne
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>CSS Registration Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <script type = "text/javascript"  src = "../javascript/validator.js" >
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>    
+    <form method="GET" action="getPDF.php" class="register" id="myForm" name="myForm">
+        <h1>SRS Department Judging</h1>
+        <fieldset class="row1">
+            <legend>Poster Details
+            </legend>
+            <p>
+                <label>DEPARTMENT *
+                </label>
+                <select name="dept" id = "dept">
+                    <option value="default" selected>SELECT ONE </option>
+                    <option value="BIOL">BIOL </option>
+                    <option value="CHEM">CHEM</option>
+                    <option value="COSC">COSC</option>
+                    <option value="ENGR">ENGR</option>
+                    <option value="MATH">MATH</option>
+                    <option value="NTDT">NTDT</option>
+                    <option value="PHYS">PHYS</option>
+                    <option value="PSYC">PSYC</option>
+                    <option value="ENSC">ENSC</option>
+                    <option value="GEOL">GEOL</option>
+                    <option value="INTR">INTR</option>
+                </select>
+            </p>
+            
+            
+        </fieldset>
+
+        <input type = "submit"  id = "submit" value="Show PDF" /> 
+
+    </form>
+
+    <script type = "text/javascript"  src = "../javascript/validatorr.js"> </script>
+
+</body>
+</html>
+
+
+
+
+

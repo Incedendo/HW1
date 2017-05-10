@@ -1,0 +1,139 @@
+<!-- 
+  Kiet Nguyen
+  Lab 2 SRS 
+  CS 30306
+  Professor Payne
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>CSS Registration Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <script type = "text/javascript"  src = "../javascript/validator.js" >
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+</head>
+
+<body>  
+
+    <form method="POST" action="passwordGenerator.php" class="register" id="myForm" name="myForm">
+        <h1>SRS Abstract Submission </h1>
+        <fieldset class="row1">
+            <legend>Abstract Details
+            </legend>
+            <p>
+                <label>First Name *
+                </label>
+                <input id="first_name" name="first_name" required="required" type="text" class="long" placeholder="eg: John"/>
+            </p>
+            <p>
+                <label>Middle Name * 
+                </label>
+                <input id="middle_name" name="middle_name" required="required" type="text" class="long" placeholder="eg: K or K." />
+            </p>
+            <p>
+                <label for="lastname"> Last Name * 
+                </label>
+                <input id="last_name" name="last_name" required="required" type="text" class="long"  placeholder="eg: Smith"/>
+            </p>
+            <p>
+                <label for="email">TCU Email *
+                </label>
+                <input id="Email" name="email" required="required" type="text" class="long" placeholder="eg: myname@example.com"/>
+            </p>
+            <p>
+                <label>Project Title *
+                </label>
+                <input id="Title" name="projTitle" required="required" type="text" class="long" />
+                <textarea name="comment" rows="5" cols="40"></textarea>
+            </p>
+            <p>
+                <label>Abstract *
+                </label>
+                <input id="abstract" name="abstract" required="required" type="text" class="long"/>
+            </p>
+            <p>
+                <label>DEPARTMENT *
+                </label>
+                <select name="deptOption" id ="dept">
+                    <option value="default" selected>SELECT ONE</option>
+                    <option value="BIOL">BIOL</option>
+                    <option value="CHEM">CHEM</option>
+                    <option value="COSC">COSC</option>
+                    <option value="ENGR">ENGR</option>
+                    <option value="MATH">MATH</option>
+                    <option value="NTDT">NTDT</option>
+                    <option value="PHYS">PHYS</option>
+                    <option value="PSYC">PSYC</option>
+                    <option value="ENSC">ENSC</option>
+                    <option value="GEOL">GEOL</option>
+                    <option value="INTR">INTR</option>
+                </select>
+            </p>
+
+            <p>
+                <label>Classification *
+                </label>
+                <select name="classOption" id ="class">
+                    <option value="default" selected>SELECT ONE </option>
+                    <option value="U">U </option>
+                    <option value="G">G</option>
+                </select>
+            </p>
+            
+        </fieldset>
+
+        <input type = "reset"  id = "reset" value="Clear"/>
+        <input type = "submit"  id = "submit" value="Submit Abstract" /> 
+
+    </form>
+
+    
+
+    <script type = "text/javascript"  src = "../javascript/validatorr.js"> </script>
+    
+    <script>
+        $(document).ready(function(){
+            /*********************************************************************
+            *
+            *   CHECK if user SELECT A VALID department
+            *   IF NOT, prompt them to reselect
+            *
+            *********************************************************************/
+           $("#submit").click(function(){
+
+                var checkSelect = 0;
+
+                if($("#dept").val() === "default"){
+                    alert("You have to choose a DEPARTMENT");
+                    checkSelect = 1;
+                    //document.getElementById("dept").focus();
+                    $("#dept").focus()
+                }
+
+                if($("#class").val() === "default"){
+                    alert("You have to choose a Classification");
+                    checkSelect = 1;
+                    //document.getElementById("class").focus();
+                    $("#class").focus()
+                }
+                if(checkSelect == 0){
+                    $( "#myForm" ).submit();
+                }
+
+            });
+        });
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+

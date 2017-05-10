@@ -1,0 +1,60 @@
+<!-- 
+  Kiet Nguyen
+  Lab 2 SRS 
+  CS 30306
+  Professor Payne
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>CSS Registration Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <script type = "text/javascript"  src = "../javascript/PosterSubValidator.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+</head>
+
+<body>    
+    <form  enctype="multipart/form-data" action="posterSubValidator.php" method="POST" class="register" id="myForm" name="myForm" >
+        <h1>SRS Poster Submission</h1>
+        <fieldset class="row1">
+            <legend>Poster Details
+            </legend>
+            <p>
+                <label>Username *
+                </label>
+                <input id="userEmail" name="userEmail" required="required" type="text" class="long" placeholder="myname@example.com"/>
+            </p>
+            <p>
+                <label>password *
+                </label>
+                <input id="password" name="password" required="required" type="password" maxlength="8" class="long" placeholder="8 characters long"/>
+            </p>
+            <p>
+                <label>Poster ID *
+                </label>
+                <input id="PosterID" name="posterID" required="required" type="text" class="long" />
+            </p>
+            <p>
+                <label>Select poster to upload (pdf ONLY):
+                </label>
+                <!-- <input type="hidden" name="MAX_FILE_SIZE" value="100000"/> -->
+                <input type="file" required="required" name="myFile" accept=".pdf" value=""/>
+            </p>
+<!-- accept=".pdf" -->
+            <input type="submit" id = "submit" value="Upload Image">
+        </fieldset>
+
+    </form>
+    <script type = "text/javascript"  src = "../javascript/PosterSubValidatorr.js"> </script>
+
+</body>
+</html>
+
+
+
+
+

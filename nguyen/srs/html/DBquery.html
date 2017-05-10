@@ -1,0 +1,49 @@
+<!-- 
+  Kiet Nguyen
+  Lab 2 SRS 
+  CS 30306
+  Professor Payne
+-->
+<html>
+<head>
+	<title>
+		
+	</title>
+	<style type="text/css">
+		.center {text-align: center}
+		h1 {font-weight: bold; text-align: center})
+	</style>
+</head>
+<body>	
+	<h1>Enter an SQL Command:</h1>
+	<form method="POST" action="dbtest.php" class="center" id="frmSQL">
+		<div>
+			<p>Syntax of a SQL Command is:</p>
+
+			<p>Layout of SRS Submission Database: <br />
+			[Poster_ID, Dept, Classification, PC_Last, PC_First, PC_MI, PC_Email, PSWD, Title, Abstract]</p>
+			
+			<p>Syntax of a basic SELECT STATEMENT is: <br />
+			SELECT fieldname FROM tablename [WHERE condition] [ORDER BY fieldname] [DESC]</p>
+
+			<p>Syntax of a basic INSERT STATEMENT is:<br />
+			INSERT INTO tablename [field-list] VALUES (value-list)</p>
+
+			<p>Syntax of a basic UPDATE STATEMENT is:<br />
+			UPDATE tablename SET fieldname = new value [, fieldname = new value] [WHERE condition]</p>
+
+			<p>Syntax of a basic DELETE STATEMENT is:<br />
+			DELETE FROM tablename [WHERE condition]</p>
+
+			<p>
+				<textarea name="txtarea" id="query_content" cols="40" rows="5"></textarea>
+				<br>
+				<input type="submit" value="Execute" id = "cmdSubmit" name="cmdSubmit">
+				<br>
+				<input type="reset" value="Reset" id = "cmdReset" name="cmdReset">
+				<br>
+			</p> 
+		</div>
+	</form>
+</body>
+</html>
